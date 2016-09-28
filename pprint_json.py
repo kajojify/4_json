@@ -7,9 +7,7 @@ def load_data(filepath):
     информацию об алкогольных магазинах Москвы."""
 
     with open(filepath) as f:
-        alcohol_json = f.readline()
-        alcohol_data = json.loads(alcohol_json)
-    return alcohol_data
+        return json.load(f)
 
 
 def pretty_print_json(data):
@@ -25,6 +23,6 @@ if __name__ == '__main__':
     try:
         alcohol_data = load_data(filepath)
     except FileNotFoundError:
-        print("Нет такого файла или директории! Повторите ввод.")
+        print("Нет такого файла или директории! Завершение программы.")
         exit()
     pretty_print_json(alcohol_data)
